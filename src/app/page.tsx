@@ -19,22 +19,6 @@ export default function Home() {
   const [bgColor, setBgColor] = useState("");
   const [contacts, setContacts] = useState<Contact[]>([]);
 
-  useEffect(() => {
-    fetch("/api/contacts")
-      .then((res) => res.json())
-      .then((data) => setContacts(data));
-  }, []);
-
-  const cards = useMemo(() => {
-    const sortedContacts = contacts.sort((a, b) => {
-      return new Date(b.date).getTime() - new Date(a.date).getTime();
-    });
-
-    return sortedContacts.map((contact) => (
-      <Card key={contact.id} contact={contact} />
-    ));
-  }, [contacts]);
-
   return (
     <>
       <Header bgColor={bgColor} setBgColor={setBgColor} />
@@ -43,7 +27,7 @@ export default function Home() {
         className="w-screen p-10 grid grid-cols-4 gap-6 bg-gray-200"
         style={{ backgroundColor: bgColor }}
       >
-        {cards}
+        {/* Your code  */}
       </div>
     </>
   );
